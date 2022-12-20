@@ -14,17 +14,23 @@ public class MainInventorySystem {
         Scanner scanner = new Scanner(System.in); //SCANNER DECLARATION
         ArrayList<Item> items = new ArrayList<>(); // ARRAYLIST "ITEMS" DECLARATION
         int userChoice = 0;
-        try {
-            // USER PROMPTS
-            System.out.println("Welcome to insertInventoryNameHere! \n");
+        while (true)
 
-            do {
+        try
+        {
+            // USER PROMPTS
+            System.out.println("Inventory ni Joross & Frans\n");
+
+            do
+            {
                 System.out.println("What would you like to do?");
                 System.out.println("[1] Add New Item\n[2] Edit Item\n[3] Delete Item\n[4] Exit Program");
-                try {
+                try
+                {
                     userChoice = scanner.nextInt();
 
-                } catch (InputMismatchException invalidInput) {
+                }
+                catch (InputMismatchException invalidInput) {
                     System.out.println("Please enter [1 - 4].");
                     scanner.nextLine();
                 }
@@ -60,13 +66,16 @@ public class MainInventorySystem {
                             System.out.println("Do you wish to add another item? (y/n)");
                             String choice = scanner.nextLine();
 
-                            if (!choice.equalsIgnoreCase("y")) {
+                            if (!choice.equalsIgnoreCase("y"))
+                            {
                                 break;
                             }
+
                         } // ADD_NEW_ITEM case ending bracket
 
                         System.out.println("Inventory: \n"); // shows all the items stored under the items ArrayList
-                        for (Item item : items) {
+                        for (Item item : items)
+                        {
                             System.out.println(item);
                         }
                         System.out.println();
@@ -76,7 +85,8 @@ public class MainInventorySystem {
 
                         System.out.println("You have chosen to: Edit an Existing Item");
 
-                        if (items.size() == 0) {
+                        if (items.size() == 0)
+                        {
                             System.out.println("You cannot edit anything since there are " + 0 + " item(s) imported.\n");
                             break;
                         }
@@ -87,30 +97,36 @@ public class MainInventorySystem {
                         System.out.println("There are " + items.size() + " item(s) imported.");
                         System.out.println("The items are the following: \n");
 
-                        for (Item item : items) {
+                        for (Item item : items)
+                        {
                             System.out.println(item);
                         }
                         System.out.println();
 
-                        while (!editFound) {
+                        while (!editFound)
+                        {
                             System.out.println("Enter the item ID of the item you want to update: ");
                             long id = scanner.nextLong();
                             scanner.nextLine();
 
-                            for (Item item : items) {
-                                if (item.getId() == id) {
+                            for (Item item : items)
+                            {
+                                if (item.getId() == id)
+                                {
                                     itemToUpdate = item;
                                     editFound = true;
                                     break;
                                 }
                             }
 
-                            if (!editFound) {
+                            if (!editFound)
+                            {
                                 System.out.println("ID not found: " + id);
                             }
                         }
 
-                        if (itemToUpdate != null) {
+                        if (itemToUpdate != null)
+                        {
                             System.out.println("Enter the new name for the item: ");
                             String name = scanner.nextLine();
                             itemToUpdate.setName(name);
@@ -142,7 +158,8 @@ public class MainInventorySystem {
 
                         System.out.println("You have chosen to: Delete an Existing Item");
 
-                        if (items.size() == 0) {
+                        if (items.size() == 0)
+                        {
                             System.out.println("You cannot delete anything since there are " + 0 + " item(s) imported.\n");
                             break;
                         }
@@ -150,17 +167,21 @@ public class MainInventorySystem {
                         System.out.println("There are " + items.size() + " item(s) imported.");
                         System.out.println("The items are the following: \n");
 
-                        for (Item item : items) {
+                        for (Item item : items)
+                        {
                             System.out.println(item);
                         }
+
                         System.out.println();
 
-                        while (!deleteFound) {
+                        while (!deleteFound)
+                        {
                             System.out.println("Enter the item ID of the item you want to delete: ");
                             long id = scanner.nextLong();
                             scanner.nextLine();
 
-                            for (Item item : items) {
+                            for (Item item : items)
+                            {
                                 if (item.getId() == id) {
                                     itemToDelete = item;
                                     deleteFound = true;
@@ -168,24 +189,28 @@ public class MainInventorySystem {
                                 }
                             }
 
-                            if (!deleteFound) {
+                            if (!deleteFound)
+                            {
                                 System.out.println("ID not found: " + id);
                             }
                         }
 
-                        if (itemToDelete != null) {
+                        if (itemToDelete != null)
+                        {
                             System.out.println("Item found: " + itemToDelete);
                             System.out.println("Do you want to delete this item? (Y/N)");
                             String confirm = scanner.nextLine();
 
-                            if (confirm.equalsIgnoreCase("Y")) {
+                            if (confirm.equalsIgnoreCase("Y"))
+                            {
                                 items.remove(itemToDelete);
                                 System.out.println("Item successfully deleted!");
-                            } else {
+                            }
+                            else
+                            {
                                 System.out.println("Deletion cancelled.");
                             }
                         }
-
                         break;
 
                     case EXIT_PROGRAM:
@@ -194,14 +219,16 @@ public class MainInventorySystem {
 
                     default:
                         System.out.println("Please enter a valid value!");
-                        break;
+                        continue;
 
                 } // main switch ending bracket
             }
             while (true); // first while (true) ending bracket
-        } catch (Exception a)
+        }
+        catch (Exception a)
         {
             System.out.println("Please enter a valid input!");
+            continue;
         }
 
     }  // main method ending bracket
