@@ -2,7 +2,8 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.*;
 
-public class MainInventorySystem {
+public class MainInventorySystem
+{
     //CASE_DECLARATIONS_FUNCTIONS
     public static final int ADD_NEW_ITEM = 1;
     public static final int EDIT_ITEM = 2;
