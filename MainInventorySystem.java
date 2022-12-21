@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.*;
 
 public class MainInventorySystem
@@ -16,8 +15,7 @@ public class MainInventorySystem
         ArrayList<Item> items = new ArrayList<>();
         int userChoice = 0;
         while (true)
-
-        try
+            try
         {
 
             System.out.println("Inventory ni Joross & Frans\n");
@@ -233,4 +231,4 @@ public class MainInventorySystem
         }
 
     }
-} 
+}
