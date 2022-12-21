@@ -4,7 +4,7 @@ import java.util.*;
 
 public class MainInventorySystem
 {
-    //CASE_DECLARATIONS_FUNCTIONS
+
     public static final int ADD_NEW_ITEM = 1;
     public static final int EDIT_ITEM = 2;
     public static final int DELETE_ITEM = 3;
@@ -12,14 +12,14 @@ public class MainInventorySystem
 
 
     public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in); //SCANNER DECLARATION
-        ArrayList<Item> items = new ArrayList<>(); // ARRAYLIST "ITEMS" DECLARATION
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Item> items = new ArrayList<>();
         int userChoice = 0;
         while (true)
 
         try
         {
-            // USER PROMPTS
+
             System.out.println("Inventory ni Joross & Frans\n");
 
             do
@@ -36,13 +36,13 @@ public class MainInventorySystem
                     scanner.nextLine();
                 }
 
-                //MAIN SWITCH
+
                 switch (userChoice)
-                { // main switch bracket
+                {
                     case ADD_NEW_ITEM:
                         System.out.println("You have chosen to: Add a New Item\n");
                         while (true)
-                        { // ADD_NEW_ITEM case opening bracket
+                        {
                             System.out.println("Enter item ID: ");
                             long id = scanner.nextLong();
                             scanner.nextLine();
@@ -72,9 +72,9 @@ public class MainInventorySystem
                                 break;
                             }
 
-                        } // ADD_NEW_ITEM case ending bracket
+                        }
 
-                        System.out.println("Inventory: \n"); // shows all the items stored under the items ArrayList
+                        System.out.println("Inventory: \n");
                         for (Item item : items)
                         {
                             System.out.println(item);
@@ -222,9 +222,9 @@ public class MainInventorySystem
                         System.out.println("Please enter a valid value!");
                         continue;
 
-                } // main switch ending bracket
+                }
             }
-            while (true); // first while (true) ending bracket
+            while (true);
         }
         catch (Exception a)
         {
@@ -232,5 +232,5 @@ public class MainInventorySystem
             continue;
         }
 
-    }  // main method ending bracket
-} // class ending bracket
+    }
+} 
